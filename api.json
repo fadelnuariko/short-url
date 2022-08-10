@@ -150,6 +150,17 @@
     },
     "/list-url": {
       "get": {
+        "parameters": [
+          {
+            "in": "header",
+            "name": "Authorization",
+            "description": "Bearer [YOUR_TOKEN]",
+            "schema": {
+              "type": "string"
+            },
+            "required": true
+          }
+        ],
         "responses": {
           "200": {
             "description": "Success get all URL",
@@ -192,6 +203,15 @@
               "type": "string",
               "nullable": false
             }
+          },
+          {
+            "in": "header",
+            "name": "Authorization",
+            "description": "Bearer [YOUR_TOKEN]",
+            "schema": {
+              "type": "string"
+            },
+            "required": true
           }
         ],
         "requestBody": {
@@ -247,6 +267,15 @@
               "type": "string",
               "nullable": false
             }
+          },
+          {
+            "in": "header",
+            "name": "Authorization",
+            "description": "Bearer [YOUR_TOKEN]",
+            "schema": {
+              "type": "string"
+            },
+            "required": true
           }
         ],
         "responses": {
@@ -311,6 +340,15 @@
                 "value": "monthly"
               }
             }
+          },
+          {
+            "in": "header",
+            "name": "Authorization",
+            "description": "Bearer [YOUR_TOKEN]",
+            "schema": {
+              "type": "string"
+            },
+            "required": true
           }
         ],
         "responses": {
