@@ -1,7 +1,7 @@
 openapi: 3.0.2
 info:
   title: Penyingkat URL
-  version: "1.0"
+  version: '1.0'
 paths:
   /login:
     post:
@@ -19,7 +19,7 @@ paths:
                   type: string
                   minLength: 6
       responses:
-        "200":
+        '200':
           description: ok
           content:
             application/json:
@@ -54,7 +54,7 @@ paths:
                   type: string
                   minLength: 6
       responses:
-        "200":
+        '200':
           description: ok
           content:
             application/json:
@@ -81,7 +81,7 @@ paths:
                   minLength: 6
                   default: <YOUR LONG URL>
       responses:
-        "200":
+        '200':
           description: ok
           content:
             application/json:
@@ -96,8 +96,15 @@ paths:
                     default: YOUR SHORT URL
   /list-url:
     get:
+      parameters:
+        - in: header
+          name: Authorization
+          description: Bearer [YOUR_TOKEN]
+          schema:
+            type: string
+          required: true
       responses:
-        "200":
+        '200':
           description: Success get all URL
           content:
             application/json:
@@ -107,12 +114,12 @@ paths:
                   value:
                     - id: <your_url_id>
                       long_url: <your_long_url>
-                      short_url: "2022-08-09T03:19:33+07:00"
-                      created_at: "2022-08-09T03:19:33+07:00"
+                      short_url: '2022-08-09T03:19:33+07:00'
+                      created_at: '2022-08-09T03:19:33+07:00'
                     - id: <your_url_id>
                       long_url: <your_long_url>
-                      short_url: "2022-08-09T03:19:33+07:00"
-                      created_at: "2022-08-09T03:19:33+07:00"
+                      short_url: '2022-08-09T03:19:33+07:00'
+                      created_at: '2022-08-09T03:19:33+07:00'
   /edit-url/{id_url}:
     put:
       parameters:
@@ -123,6 +130,12 @@ paths:
           schema:
             type: string
             nullable: false
+        - in: header
+          name: Authorization
+          description: Bearer [YOUR_TOKEN]
+          schema:
+            type: string
+          required: true
       requestBody:
         required: true
         content:
@@ -135,7 +148,7 @@ paths:
                   minLength: 6
                   default: <YOUR SHORT CUSTOM URL>
       responses:
-        "200":
+        '200':
           description: OK
           content:
             application/json:
@@ -158,8 +171,14 @@ paths:
           schema:
             type: string
             nullable: false
+        - in: header
+          name: Authorization
+          description: Bearer [YOUR_TOKEN]
+          schema:
+            type: string
+          required: true
       responses:
-        "200":
+        '200':
           description: OK
           content:
             application/json:
@@ -201,8 +220,14 @@ paths:
             monthly:
               description: Parameter dengan statistics dalam bulanan dalam 1 tahun terakhir
               value: monthly
+        - in: header
+          name: Authorization
+          description: Bearer [YOUR_TOKEN]
+          schema:
+            type: string
+          required: true
       responses:
-        "200":
+        '200':
           description: OK
           content:
             application/json:
@@ -211,35 +236,35 @@ paths:
                   description: Example hourly statistics
                   value:
                     - id: <your_url_id>
-                      datetime: "2022-08-09T03:00:00+00:00"
+                      datetime: '2022-08-09T03:00:00+00:00'
                       total: 2
                     - id: <your_url_id>
-                      datetime: "2022-08-09T04:00:00+00:00"
+                      datetime: '2022-08-09T04:00:00+00:00'
                       total: 4
                     - id: <your_url_id>
-                      datetime: "2022-08-09T05:00:00+00:00"
+                      datetime: '2022-08-09T05:00:00+00:00'
                       total: 3
                 daily:
                   description: Example daily statistics
                   value:
                     - id: <your_url_id>
-                      datetime: "2022-08-08T03:00:00+00:00"
+                      datetime: '2022-08-08T03:00:00+00:00'
                       total: 2
                     - id: <your_url_id>
-                      datetime: "2022-08-09T04:00:00+00:00"
+                      datetime: '2022-08-09T04:00:00+00:00'
                       total: 4
                     - id: <your_url_id>
-                      datetime: "2022-08-10T05:00:00+00:00"
+                      datetime: '2022-08-10T05:00:00+00:00'
                       total: 3
                 monthly:
                   description: Example monthly statistics
                   value:
                     - id: <your_url_id>
-                      datetime: "2022-07-08T03:00:00+00:00"
+                      datetime: '2022-07-08T03:00:00+00:00'
                       total: 2
                     - id: <your_url_id>
-                      datetime: "2022-08-09T04:00:00+00:00"
+                      datetime: '2022-08-09T04:00:00+00:00'
                       total: 4
                     - id: <your_url_id>
-                      datetime: "2022-09-10T05:00:00+00:00"
+                      datetime: '2022-09-10T05:00:00+00:00'
                       total: 3
